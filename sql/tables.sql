@@ -1,0 +1,1 @@
+-- Script SQL pour les tables du projet (à compléter)
