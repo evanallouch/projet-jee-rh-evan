@@ -19,4 +19,24 @@ public class EmployeDaoMemoire implements EmployeDao {
     public List<Employe> findAll() {
         return employes;
     }
+
+    @Override
+    public void add(Employe employe) {
+        // on calcule un nouvel id : dernier id + 1
+        int newId = 1;
+        if (!employes.isEmpty()) {
+            newId = employes.get(employes.size() - 1).getId() + 1;
+        }
+
+        // on recrée un employé avec ce nouvel id
+        Employe e = new Employe(
+                newId,
+                employe.getNom(),
+                employe.getPrenom(),
+                employe.getPoste(),
+                employe.getSalaireBase()
+        );
+
+        employes.add(e);
+    }
 }

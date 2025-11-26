@@ -8,7 +8,13 @@
     <title>Liste des employés</title>
 </head>
 <body>
+
 <h1>Liste des employés</h1>
+
+<p>
+    <a href="ajoutEmploye.jsp">Ajouter un employé</a>
+</p>
+
 
 <table border="1" cellpadding="5">
     <tr>
