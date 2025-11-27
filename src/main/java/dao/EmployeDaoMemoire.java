@@ -1,6 +1,7 @@
 package dao;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import model.Employe;
@@ -22,13 +23,11 @@ public class EmployeDaoMemoire implements EmployeDao {
 
     @Override
     public void add(Employe employe) {
-        // on calcule un nouvel id : dernier id + 1
         int newId = 1;
         if (!employes.isEmpty()) {
             newId = employes.get(employes.size() - 1).getId() + 1;
         }
 
-        // on recrée un employé avec ce nouvel id
         Employe e = new Employe(
                 newId,
                 employe.getNom(),
@@ -38,5 +37,18 @@ public class EmployeDaoMemoire implements EmployeDao {
         );
 
         employes.add(e);
+    }
+
+    @Override
+    public void deleteById(int id) {
+        // on parcourt la liste et on supprime celui qui a le bon id
+        Iterator<Employe> it = employes.iterator();
+        while (it.hasNext()) {
+            Employe e = it.next();
+            if (e.getId() == id) {
+                it.remove();
+                break;
+            }
+        }
     }
 }
