@@ -21,11 +21,11 @@ public class AjoutEmployeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // Récupération des paramètres envoyés par le formulaire
         String nom = request.getParameter("nom");
         String prenom = request.getParameter("prenom");
         String poste = request.getParameter("poste");
         String salaireStr = request.getParameter("salaireBase");
+        String departement = request.getParameter("departement");
 
         double salaireBase = 0;
         if (salaireStr != null && !salaireStr.isBlank()) {
@@ -36,13 +36,10 @@ public class AjoutEmployeServlet extends HttpServlet {
             }
         }
 
-        // On crée un Employe (l'id sera mis par le DAO)
-        Employe nouvelEmploye = new Employe(0, nom, prenom, poste, salaireBase);
+        Employe nouvelEmploye = new Employe(0, nom, prenom, poste, salaireBase, departement);
 
-        // On l'ajoute via le DAO
         employeDao.add(nouvelEmploye);
 
-        // On revient à la liste des employés
         response.sendRedirect(request.getContextPath() + "/employes");
     }
 }

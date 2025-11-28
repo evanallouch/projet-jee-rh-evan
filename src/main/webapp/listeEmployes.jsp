@@ -17,30 +17,34 @@
 
 
 <table border="1" cellpadding="5">
-    <tr>
-        <th>ID</th>
-        <th>Nom</th>
-        <th>Prénom</th>
-        <th>Poste</th>
-        <th>Salaire de base</th>
-        <th>Actions</th>
-    </tr>
+<tr>
+    <th>ID</th>
+    <th>Nom</th>
+    <th>Prénom</th>
+    <th>Poste</th>
+    <th>Salaire de base</th>
+    <th>Département</th>
+    <th>Actions</th>
+</tr>
+
 
     <%
         List<Employe> liste = (List<Employe>) request.getAttribute("listeEmployes");
         if (liste != null) {
             for (Employe e : liste) {
     %>
-    <tr>
-        <td><%= e.getId() %></td>
-        <td><%= e.getNom() %></td>
-        <td><%= e.getPrenom() %></td>
-        <td><%= e.getPoste() %></td>
-        <td><%= e.getSalaireBase() %> €</td>
-        <td>
-            <a href="supprimer-employe?id=<%= e.getId() %>">Supprimer</a>
-        </td>
-    </tr>
+<tr>
+    <td><%= e.getId() %></td>
+    <td><%= e.getNom() %></td>
+    <td><%= e.getPrenom() %></td>
+    <td><%= e.getPoste() %></td>
+    <td><%= e.getSalaireBase() %> €</td>
+    <td><%= e.getDepartement() %></td>
+    <td>
+        <a href="supprimer-employe?id=<%= e.getId() %>">Supprimer</a>
+    </td>
+</tr>
+
 
     <%
             }

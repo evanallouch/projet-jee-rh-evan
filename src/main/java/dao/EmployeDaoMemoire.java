@@ -11,9 +11,9 @@ public class EmployeDaoMemoire implements EmployeDao {
     private static List<Employe> employes = new ArrayList<>();
 
     static {
-        employes.add(new Employe(1, "Dupont", "Jean", "Développeur", 2500));
-        employes.add(new Employe(2, "Martin", "Sophie", "Chef de projet", 3200));
-        employes.add(new Employe(3, "Durand", "Paul", "RH", 2800));
+        employes.add(new Employe(1, "Dupont", "Jean", "Développeur", 2500, "Informatique"));
+        employes.add(new Employe(2, "Martin", "Sophie", "Chef de projet", 3200, "Informatique"));
+        employes.add(new Employe(3, "Durand", "Paul", "RH", 2800, "Ressources Humaines"));
     }
 
     @Override
@@ -33,7 +33,8 @@ public class EmployeDaoMemoire implements EmployeDao {
                 employe.getNom(),
                 employe.getPrenom(),
                 employe.getPoste(),
-                employe.getSalaireBase()
+                employe.getSalaireBase(),
+                employe.getDepartement()
         );
 
         employes.add(e);
@@ -41,7 +42,6 @@ public class EmployeDaoMemoire implements EmployeDao {
 
     @Override
     public void deleteById(int id) {
-        // on parcourt la liste et on supprime celui qui a le bon id
         Iterator<Employe> it = employes.iterator();
         while (it.hasNext()) {
             Employe e = it.next();

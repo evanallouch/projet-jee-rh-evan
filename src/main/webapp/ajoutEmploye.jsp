@@ -26,6 +26,10 @@
         <input type="number" step="0.01" name="salaireBase" required>
     </p>
     <p>
+        <label>Département :</label>
+        <input type="text" name="departement" required>
+    </p>
+    <p>
         <button type="submit">Enregistrer</button>
     </p>
 </form>
