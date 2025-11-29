@@ -40,9 +40,11 @@
     <td><%= e.getPoste() %></td>
     <td><%= e.getSalaireBase() %> €</td>
     <td><%= e.getDepartement() %></td>
-    <td>
-        <a href="supprimer-employe?id=<%= e.getId() %>">Supprimer</a>
-    </td>
+<td>
+    <a href="edit-employe?id=<%= e.getId() %>">Modifier</a> |
+    <a href="supprimer-employe?id=<%= e.getId() %>">Supprimer</a>
+</td>
+
 </tr>
 
 

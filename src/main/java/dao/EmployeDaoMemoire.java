@@ -22,6 +22,16 @@ public class EmployeDaoMemoire implements EmployeDao {
     }
 
     @Override
+    public Employe findById(int id) {
+        for (Employe e : employes) {
+            if (e.getId() == id) {
+                return e;
+            }
+        }
+        return null;
+    }
+
+    @Override
     public void add(Employe employe) {
         int newId = 1;
         if (!employes.isEmpty()) {
@@ -52,3 +62,4 @@ public class EmployeDaoMemoire implements EmployeDao {
         }
     }
 }
+
